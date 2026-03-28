@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.441",
+    "@remotion/player": "^4.0.441",
+    "lucide-react": "^1.7.0",
     "next": "16.2.1",
+    "next-themes": "^0.4.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "remotion": "^4.0.441"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
