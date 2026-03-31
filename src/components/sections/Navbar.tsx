@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useDownloadLinks } from "@/components/useDownloadLinks";
 
 const navItems = [
   { label: "Features", href: "/#what-it-does" },
@@ -11,6 +12,7 @@ const navItems = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const dl = useDownloadLinks();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-light/80 dark:bg-stone-900/80 backdrop-blur-md border-b border-stone-200/60 dark:border-stone-800/60">
@@ -55,7 +57,7 @@ export function Navbar() {
             </a>
             <ThemeToggle size={16} />
             <a
-              href="#download-windows"
+              href={dl.primary}
               className="ml-1 inline-flex items-center gap-2 bg-brand-accent text-white px-5 py-2 rounded-full font-medium text-sm hover:bg-brand-accent-hover transition-colors"
             >
               <Download size={14} />
@@ -87,7 +89,7 @@ export function Navbar() {
             ))}
             <div className="pt-3">
               <a
-                href="#download-windows"
+                href={dl.primary}
                 onClick={() => setIsOpen(false)}
                 className="block w-full text-center bg-brand-accent text-white py-3 rounded-full font-medium"
               >

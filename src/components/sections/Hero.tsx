@@ -1,27 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Shield, DollarSign } from "lucide-react";
 import { HeroPlayer } from "@/components/ui/HeroPlayer";
-import { WindowsIcon, AppleIcon } from "@/components/ui/OsIcons";
+import { WindowsIcon, AppleIcon, LinuxIcon } from "@/components/ui/OsIcons";
+import { useDownloadLinks } from "@/components/useDownloadLinks";
 
-const downloads = {
-  windows: { label: "Download for Windows", file: "#download-windows" },
-  mac: { label: "Download for Mac", file: "#download-mac" },
-};
-
-type OS = keyof typeof downloads;
+const platformConfig = {
+  windows: { label: "Download for Windows", Icon: WindowsIcon },
+  mac: { label: "Download for Mac", Icon: AppleIcon },
+  linux: { label: "Download for Linux", Icon: LinuxIcon },
+} as const;
 
 export function Hero() {
-  const [detectedOS, setDetectedOS] = useState<OS>("windows");
+  const dl = useDownloadLinks();
 
-  useEffect(() => {
-    const ua = navigator.userAgent.toLowerCase();
-    if (ua.includes("mac")) setDetectedOS("mac");
-  }, []);
-
-  const primary = downloads[detectedOS];
-  const other = detectedOS === "windows" ? downloads.mac : downloads.windows;
+  const urlFor = (os: string) => os === "mac" ? dl.mac : os === "linux" ? dl.linux : dl.win;
+  const primaryCfg = platformConfig[dl.os];
+  const others = (Object.keys(platformConfig) as Array<keyof typeof platformConfig>).filter((k) => k !== dl.os);
 
   return (
     <section className="relative pt-36 pb-24">
@@ -47,17 +42,24 @@ export function Hero() {
           {/* Download CTAs */}
           <div className="flex flex-col items-center gap-4 mb-5">
             <a
-              href={primary.file}
+              href={urlFor(dl.os)}
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-accent text-white font-semibold text-base hover:bg-brand-accent-hover transition-colors shadow-lg shadow-brand-accent/20"
             >
-              {detectedOS === "windows" ? <WindowsIcon size={18} /> : <AppleIcon size={18} />}
-              <span>{primary.label}</span>
+              <primaryCfg.Icon size={18} />
+              <span>{primaryCfg.label}</span>
             </a>
 
-            <a href={other.file} className="inline-flex items-center gap-2 text-sm text-brand-secondary dark:text-stone-400 hover:text-brand-accent transition-colors font-medium">
-              {detectedOS === "windows" ? <AppleIcon size={14} /> : <WindowsIcon size={14} />}
-              {other.label}
-            </a>
+            <div className="flex items-center gap-4">
+              {others.map((os) => {
+                const cfg = platformConfig[os];
+                return (
+                  <a key={os} href={urlFor(os)} className="inline-flex items-center gap-2 text-sm text-brand-secondary dark:text-stone-400 hover:text-brand-accent transition-colors font-medium">
+                    <cfg.Icon size={14} />
+                    {cfg.label}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           {/* Trust signals — prominent but clean */}

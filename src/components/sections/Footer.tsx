@@ -25,9 +25,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-stone-200/60 dark:border-stone-800">
+        <div className="mt-8 pt-8 border-t border-stone-200/60 dark:border-stone-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <p className="text-sm text-brand-muted dark:text-stone-500">
-            &copy; {new Date().getFullYear()} Symploc. <span className="font-semibold">Plan. Build. Ship.</span>
+            &copy; {new Date().getFullYear()} Symploc, LLC. <span className="font-semibold">Plan. Build. Ship.</span>
+          </p>
+          <p className="text-xs text-brand-muted dark:text-stone-500">
+            131 Continental Dr, Suite 305, Newark, DE 19713, USA &middot; contact@symploc.com
           </p>
         </div>
       </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import { BrainCircuit, GitBranch, Layers, Network, Eye, Shield, Rocket, Download } from "lucide-react";
+import { useDownloadLinks } from "@/components/useDownloadLinks";
 import type { LucideIcon } from "lucide-react";
 
 interface Capability {
@@ -46,6 +49,7 @@ const capabilities: Capability[] = [
 ];
 
 export function Capabilities() {
+  const dl = useDownloadLinks();
   return (
     <section className="py-32 bg-stone-50/50 dark:bg-stone-900/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +81,7 @@ export function Capabilities() {
 
         <div className="mt-12 text-center">
           <a
-            href="#download-windows"
+            href={dl.primary}
             className="group inline-flex items-center gap-2 text-sm font-semibold text-brand-accent hover:text-brand-accent-hover transition-colors"
           >
             <Download size={14} />
