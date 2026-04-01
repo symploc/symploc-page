@@ -37,7 +37,7 @@ let inflight: Promise<VersionManifest> | null = null;
 
 function fetchManifest(): Promise<VersionManifest> {
   if (!inflight) {
-    inflight = fetch(MANIFEST_URL)
+    inflight = fetch(`${MANIFEST_URL}?t=${Date.now()}`, { cache: "no-store" })
       .then((r) => r.json())
       .then((data: VersionManifest) => { cached = data; return data; })
       .catch(() => fallback);
