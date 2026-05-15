@@ -10,13 +10,13 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 export const metadata: Metadata = {
   title: "Symploc | The AI product manager that ships for you",
   description:
-    "Free desktop app — an AI super agent that controls Claude Code, Codex, and Gemini. Plan mode, session management, system visualization, one-click deploy. Local-first, privacy-first.",
+    "Free desktop app. An AI super agent that controls Claude Code, Codex, and Gemini. We also build for clients: web, mobile, desktop, and AI engineering services. Plan. Build. Ship.",
   keywords:
-    "AI product manager, super agent, Claude Code, Codex, Gemini CLI, plan mode, system visualization, session management, one-click deploy, local-first AI, free developer tool, Symploc",
+    "AI product manager, super agent, Claude Code, Codex, Gemini CLI, plan mode, system visualization, session management, one-click deploy, local-first AI, free developer tool, Symploc, software development agency, web development, mobile app development, desktop app development, AI consulting, AI engineering",
   openGraph: {
     title: "Symploc | The AI product manager that ships for you",
     description:
-      "Free desktop app — an AI super agent that controls Claude Code, Codex, and Gemini. Plan mode, session management, system visualization, one-click deploy.",
+      "Free desktop app and engineering studio. AI super agent for Claude Code, Codex, and Gemini, plus a team that builds web, mobile, desktop, and AI for clients.",
     url: "https://symploc.com",
     siteName: "Symploc",
     type: "website",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Symploc | The AI product manager that ships for you",
     description:
-      "Free desktop app — an AI super agent that controls Claude Code, Codex, and Gemini. Plan. Build. Ship.",
+      "Free desktop app. Engineering studio. Plan. Build. Ship.",
   },
 };
 

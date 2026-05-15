@@ -16,6 +16,12 @@ export function Footer() {
             <a href="/#what-it-does" className="hover:text-brand-primary dark:hover:text-stone-100 transition-colors">
               Features
             </a>
+            <a href="/services" className="hover:text-brand-primary dark:hover:text-stone-100 transition-colors">
+              Services
+            </a>
+            <a href="/services#process" className="hover:text-brand-primary dark:hover:text-stone-100 transition-colors">
+              How we work
+            </a>
             <a href="/privacy" className="hover:text-brand-primary dark:hover:text-stone-100 transition-colors">
               Privacy
             </a>

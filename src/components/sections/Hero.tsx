@@ -62,6 +62,17 @@ export function Hero() {
             </div>
           </div>
 
+          {/* Agency hint — subtle secondary path */}
+          <p className="text-xs text-brand-muted dark:text-stone-500 mb-2">
+            Building something custom?{" "}
+            <a
+              href="/services"
+              className="text-brand-accent hover:underline font-medium"
+            >
+              Hire our team →
+            </a>
+          </p>
+
           {/* Trust signals — prominent but clean */}
           <div className="flex items-center justify-center gap-6 mt-2 mb-2">
             <div className="flex items-center gap-2">

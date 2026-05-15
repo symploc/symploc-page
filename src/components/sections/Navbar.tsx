@@ -8,6 +8,7 @@ import { useDownloadLinks } from "@/components/useDownloadLinks";
 
 const navItems = [
   { label: "Features", href: "/#what-it-does" },
+  { label: "Services", href: "/services" },
 ];
 
 export function Navbar() {
